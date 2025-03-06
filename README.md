@@ -3,12 +3,12 @@ Final Project Data Vis GitHub
 
 # 360 Textile Industry
 
-Grace Liu (gl2910@columbia.edu) 
-Sofia Pelaez (asp2265@columbia.edu)
-Sebastian Sanchez (ss7257@columbia.edu)
-Emma Scherrer (els2264@columbia.edu)
+Grace Liu (gl2910@columbia.edu)   
+Sofia Pelaez (asp2265@columbia.edu)  
+Sebastian Sanchez (ss7257@columbia.edu)  
+Emma Scherrer (els2264@columbia.edu)  
 
-#### Description:   
+## Description:   
 
 The textile industry stands at a critical juncture, facing unprecedented scrutiny for its unsustainable practices and detrimental impact on the environment. As one of the world's largest consumer industries, aspects such as fashion production cycles, distribution networks and waste are key aspects to construct an overview of the current situation. In the era of social-platform-fueled microtrends and unparalleled mass production, it is important to process and present appealing information to increase awareness on the pressing need for sustainable solutions across different areas of the textile network. 
 
@@ -25,47 +25,36 @@ Countries to consider: China, USA, India, UK, Vietnam
 #### Map:   
 The visuals start with a map showing the network between the countries regarding import/export trends. When hovering over the country, information regarding global scale measurements could show up (textile trade, waste and carbon pollution compared to net countries, for example). 
 
-> Click on the country to see more. 
-
 #### Dashboard:   
 After clicking, a dashboard corresponding to the selected country will be displayed, revealing more information on a local scale (import/export share, waste generation, carbon footprint, water usage, consumer behaviour, for example). 
 
 Visual resources: 
-- Heatmap / Choropleth map
-- Static charts
+- Heatmap/Choropleth map  
+- Static charts  
 - Text
 
 #### Data Table:   
-Interactive data table containing all the information, facilitating a compare view  between countries.  
+Interactive data table containing all the information, facilitating a compare view  between countries. 
 
-Visual products:   
-Interactive world map:
-		Heatmap
-		Choropleth
-Interactive (or not) dashboard:
-Static charts (bar, line)  
-
-Interactive datatable:
-All information to compare between countries 
-
-## Challenge: the main challenge will be building our own dataset since it is very time consuming. We may also have issues with collecting the same data across countries and risk not having a point of comparison in some cases. 
+## Challenge:    
+The main challenge will be building our own dataset since it is very time consuming. We may also have issues with collecting the same data across countries and risk not having a point of comparison in some cases. 
 
 ## Data: 
 
-US International Trade Commission - trade information: https://www.usitc.gov/research_and_analysis/tradeshifts/2021/textiles 
-UN Environment Programme - GLobal Waste Management:
-https://www.unep.org/resources/global-waste-management-outlook-2024 
-World Bank Climate Change Data (CO2 Emissions per country): https://data.worldbank.org/topic/climate-change
-​​FAO AQUASTAT (water consumption per country):
-http://www.fao.org/aquastat/en/
-World Bank What a Waste Global Database (textile waste production and disposal methods):
-https://datacatalog.worldbank.org/dataset/what-waste-global-database
-UN Comtrade Database (trade data): https://comtrade.un.org/
-​​Open Apparel Registry (key production locations): https://openapparel.org/
-World Values Survey (see consumer interest in sustainability): https://www.worldvaluessurvey.org/wvs.jsp
-OECD Better Life Index (economic indicators): http://www.oecdbetterlifeindex.org/
-The Apparel 100 platform compiles ESG data on supply chain transparency for top fashion companies across different regions
-Variables: thrifting per capita, supply chain fashion transparency, ESG scores, importers, exporters 
-Google Trends: search interest in keywords such as “thrift stores near me” or “secondhand clothing” or “vintage”
-ThredUp Resale Report: annual report on the secondhand market’s growth
-Google Trends 
+US International Trade Commission - trade information: https://www.usitc.gov/research_and_analysis/tradeshifts/2021/textiles   
+UN Environment Programme - GLobal Waste Management:  
+https://www.unep.org/resources/global-waste-management-outlook-2024   
+World Bank Climate Change Data (CO2 Emissions per country): https://data.worldbank.org/topic/climate-change  
+​​FAO AQUASTAT (water consumption per country):  
+http://www.fao.org/aquastat/en/  
+World Bank What a Waste Global Database (textile waste production and disposal methods):  
+https://datacatalog.worldbank.org/dataset/what-waste-global-database  
+UN Comtrade Database (trade data): https://comtrade.un.org/  
+​​Open Apparel Registry (key production locations): https://openapparel.org/  
+World Values Survey (see consumer interest in sustainability): https://www.worldvaluessurvey.org/wvs.jsp  
+OECD Better Life Index (economic indicators): http://www.oecdbetterlifeindex.org/  
+The Apparel 100 platform compiles ESG data on supply chain transparency for top fashion companies across different regions  
+Variables: thrifting per capita, supply chain fashion transparency, ESG scores, importers, exporters   
+Google Trends: search interest in keywords such as “thrift stores near me” or “secondhand clothing” or “vintage”  
+ThredUp Resale Report: annual report on the secondhand market’s growth  
+Google Trends   
