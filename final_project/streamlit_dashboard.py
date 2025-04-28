@@ -7,6 +7,7 @@ from streamlit_folium import st_folium
 from streamlit.components.v1 import html
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
+import plotly.express as px
 
 st.markdown("""
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
@@ -24,7 +25,6 @@ tab1, tab2, tab3 = st.tabs(["Home", "About", "Contact"])
 
 with tab1:
     st.write("Welcome to the main Textile Industry dashboard.")
-    # (Here you put your map visualizations code!)
 
     #########
     # Main Interactive Maps #
@@ -60,17 +60,17 @@ with tab1:
     # Country selector based on selected map
     country_choice = st.sidebar.selectbox(
         "Explore a country",
-        relevant_countries
+        ["All"] + relevant_countries
     )
 
     ##### FOLIUM MAPS #####
-    m = folium.Map(location=[20, 0], zoom_start=2, tiles='CartoDB positron')
+    m = folium.Map(location=[20, 0], zoom_start=2.5, tiles='CartoDB positron')
 
 
     for country in relevant_countries:
         folium.CircleMarker(
             location=cons_waste_coords[country],
-            radius=8 if country == country_choice else 5, 
+            radius=12 if country == country_choice else 5, 
             color='#A3C9A8' if country == country_choice else '#8ECAE6',  
             fill=True,
             fill_opacity=1,
@@ -91,8 +91,113 @@ with tab1:
         4. Germany  
         5. United Kingdom
         """)
-    
-    elif map_choice == "Top Textile Waste Producers":
+
+        if country_choice == "All":
+
+            #### apparel imports map ####
+            st.markdown("---")
+            st.markdown("<h2 style='text-align:center;'>Apparel Imports Animated Map</h2>", unsafe_allow_html=True)
+
+            apparel_imports_df = pd.read_csv('/Users/graceliu/Desktop/Columbia/Spring2025/data_visualization/final_project/apparel_imports.csv')
+            apparel_imports_df = apparel_imports_df[apparel_imports_df['Apparel_Imports'] > 0]
+            df_no_world = apparel_imports_df[apparel_imports_df['Importers'] != 'World']
+
+            def highlight_top5(group):
+                top5 = group.nlargest(5, 'Apparel_Imports')
+                group['Highlight'] = np.where(group['Importers'].isin(top5['Importers']), 'Top 5', 'Other')
+                return group
+
+            df_no_world = df_no_world.groupby('Year').apply(highlight_top5).reset_index(drop=True)
+
+            color_map = {'Top 5': '#FFE5B4', 'Other': '#6C7A89'}
+
+            fig = px.choropleth(
+                df_no_world,
+                locations='Importers',
+                locationmode='country names',
+                color='Highlight',
+                color_discrete_map=color_map,
+                animation_frame='Year',
+                hover_name='Importers',
+                hover_data={
+                    'Apparel_Imports': ':.0f',
+                    'Highlight': False,
+                    'Year': True,
+                    'Importers': False
+                },
+                width=1000,
+                height=800
+            )
+
+            fig.update_traces(
+                hovertemplate='<b>%{hovertext}</b><br>Year: %{customdata[1]}<br>Apparel imported (US dollar thousand): %{customdata[0]:,}<extra></extra>'
+            )
+
+            fig.update_geos(
+                fitbounds='locations',
+                showcountries=True,
+                showcoastlines=False,
+                showframe=False,
+                bgcolor='#B0A8B9',  
+                landcolor='#0f3d91', 
+                lakecolor='#8ECAE6',  
+                projection_type='natural earth'
+            )
+
+            fig.update_layout(
+                paper_bgcolor='#B0A8B9',
+                plot_bgcolor='#B0A8B9',
+                font=dict(color='#F8F9FA', family='Montserrat, Arial, sans-serif', size=18),
+                margin=dict(r=0, t=80, l=0, b=0),
+                title=dict(
+                    text = "Apparel Imported by Country (USD by thousands) — Top 5 Highlighted",
+                    x =  0.5,
+                    xanchor =  'center',
+                    yanchor=  'top',
+                    font = dict(size=28, color='#F8F9FA', family='Montserrat, Arial, sans-serif')
+                    ,
+                ),
+                legend=dict(
+                    title = None,
+                    orientation='h',
+                    yanchor='bottom',
+                    y=0.9,
+                    xanchor='right',
+                    x=1,
+                    bgcolor='#F8F9FA',  # <-- Light white background for legend box
+                    bordercolor='#6C7A89',               # <-- Border color
+                    borderwidth=2,
+                    font=dict(size=18, color='#6C7A89')
+                )
+            )
+
+            st.plotly_chart(fig, use_container_width=True)
+        
+            ### time series line graph ###
+            top_countries = ['United States of America', 'France', 'Japan', 'Germany', 'United Kingdom'] #Top Countries defined thanks to previous map, we can see that there is not much change
+
+            line_df = apparel_imports_df[apparel_imports_df['Importers'].isin(top_countries)]
+
+            fig_line = px.line(line_df,
+                            x='Year',
+                            y='Apparel_Imports',
+                            color='Importers',
+                            title='Apparel Imports Evolution for Top 5 Countries')
+            
+            fig_line.update_layout(
+                title = dict(
+                    x = 0.5,
+                    xanchor = 'center',
+                    font = dict(size=24, color='#474b4f', family='Montserrat')
+                ),
+                yaxis_title="Total Apparel Imports (USD)",
+                xaxis_title="Year",
+                hovermode='x unified')
+            
+            st.plotly_chart(fig_line, use_container_width=True)
+
+
+    if map_choice == "Top Textile Waste Producers":
         st.sidebar.info("""
         **Top 5 Countries**
         1. China  
