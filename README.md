@@ -5,7 +5,7 @@ Final Project Data Vis GitHub
 
 Grace Liu (gl2910@columbia.edu)   
 Sofia Pelaez (asp2265@columbia.edu)  
-Sebastian Sanchez (ss7257@columbia.edu)  
+Sevastian Sanchez (ss7257@columbia.edu)  
 Emma Scherrer (els2264@columbia.edu)  
 
 ## Description:   
