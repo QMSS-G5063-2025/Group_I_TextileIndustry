@@ -13,8 +13,6 @@ from geopy.geocoders import Nominatim
 import time
 import json
 import requests
-import ipywidgets as widgets
-from IPython.display import display, clear_output
 from folium.plugins import AntPath
 
 st.set_page_config(layout="wide")
