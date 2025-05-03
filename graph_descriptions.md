@@ -6,7 +6,7 @@ This map spotlights the world’s top apparel importers, highlighting the United
 The significance of tracking apparel imports goes beyond trade statistics. High import volumes are closely tied to patterns of mass consumption, “fast fashion,” and the environmental footprint of the apparel industry. Research shows that consumption rates in developed economies like the US and Western Europe have a profound impact on global greenhouse gas [emissions](https://nrs.harvard.edu/URN-3:HUL.INSTREPOS:37365025), immense textile [waste generation](https://www.fibre2fashion.com/industry-article/10157/sustainability-challenges-in-the-global-textile-industry-analysing-waste-management-and-resource-eff), and resource use throughout the textile value chain. The demand from these top importers fuels production surges in manufacturing hubs, often in developing countries (see importers/exporters network graphs below), amplifying the industry’s challenges with sustainability, waste, and social responsibility.
 
 ## Consumer Behaviour 
-Utilizing Google Trends methodology, the above showcases consumer interest in different fashion brands measured by the number of related Google searches. We specifically identify fast fashion chains and compare rates to sustainable alternatives, focusing on the top five apparel-importing countries. Although Google Trends is a mere proxy measure of consumer demand, it provides a relatively good understanding of what kinds of brands are driving global trends in sustainable vs. fast fashion. 
+Utilizing *Google Trends* methodology, the above showcases consumer interest in different fashion brands measured by the number of related Google searches. We specifically identify fast fashion chains and compare rates to sustainable alternatives, focusing on the top five apparel-importing countries. Although Google Trends is a mere proxy measure of consumer demand, it provides a relatively good understanding of what kinds of brands are driving global trends in sustainable vs. fast fashion. 
 
 ## Top 5 Countries Exporting the Most Waste
 According to Buisnesswaste.co.uk, United States, China, India, Italy, and Germany export the most textile waste [globally](https://www.businesswaste.co.uk/your-waste/textile-recycling/fashion-waste-facts-and-statistics/#:~:text=China%20and%20the%20USA%20are,the%20way%20across%20the%20continent). In the following visualizations we highlight four of some of the most common types of textile waste: ***silk, wool, rags, and worn clothes***. Specifications can be traced from leftover textile manufacturing fabrics (notably silk and wool waste), every-day household supplies (cleaning/used rags), and consumer behavioral habits resulting in high clothing waste (i.e., worn clothes).
@@ -21,7 +21,7 @@ It is important to note that our waste categories represent a mere fraction of t
 
 **Why Do Countries Export Textile Waste?**
 - Waste Diversion: Exporting waste helps reduce the amount sent to local landfills or incinerators.
-- Resource Efficiency: Reusing or recycling clothing abroad can reduce the environmental impact by up to 70% compared to making new textiles.
+- Resource Efficiency: Reusing or recycling clothing abroad can reduce the environmental impact by up to **70%** compared to making new textiles.
 - Global Redistribution: Exported textiles are often reused in lower- and middle-income countries, providing affordable clothing and supporting local economies.
 - Job Creation: The trade in used textiles supports jobs in recipient countries, such as market sellers and recyclers.
 
