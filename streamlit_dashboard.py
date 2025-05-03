@@ -1459,7 +1459,7 @@ with tab1:
                  ''')
         
         ####### TEXTILE EXPORTS BAR GRAPH #######
-        textile_exp_df = pd.read_csv('Textile_Waste_Exports.csv')
+        textile_exp_df = pd.read_csv('https://raw.githubusercontent.com/QMSS-G5063-2025/Group_I_TextileIndustry/refs/heads/main/final_project/Textile_Waste_Exports.csv')
 
         textile_exp_df = textile_exp_df[textile_exp_df['Exporter Country'] != 'World']
         textile_exp_df['Export Value (USD)'] = pd.to_numeric(textile_exp_df['Export Value (USD)'], errors='coerce').fillna(0)
@@ -1541,7 +1541,7 @@ with tab1:
         ''')
 
         ##### top 5 textile waste exporters #####
-        textile_exp_df = pd.read_csv('Textile_Waste_Exports.csv')
+        textile_exp_df = pd.read_csv('https://raw.githubusercontent.com/QMSS-G5063-2025/Group_I_TextileIndustry/refs/heads/main/final_project/Textile_Waste_Exports.csv')
 
         agg = textile_exp_df.groupby('Textile Type')['Export Value (USD)'].sum().reset_index()
 
@@ -1610,7 +1610,7 @@ with tab1:
 
         #### total export value per textile type ####
 
-        textile_exp_df = pd.read_csv('Textile_Waste_Exports.csv')
+        textile_exp_df = pd.read_csv('https://raw.githubusercontent.com/QMSS-G5063-2025/Group_I_TextileIndustry/refs/heads/main/final_project/Textile_Waste_Exports.csv')
 
         countries = ['United States of America', 'China', 'India', 'Italy', 'Germany']
         textile_exp_df = textile_exp_df[textile_exp_df['Exporter Country'].isin(countries)]
@@ -1684,7 +1684,7 @@ with tab1:
         """, unsafe_allow_html=True)
 
         st.markdown("### **India's Textile Shipments Network**")
-        india_shipments_df = pd.read_csv('India_Shipments.csv')
+        india_shipments_df = pd.read_csv('https://raw.githubusercontent.com/QMSS-G5063-2025/Group_I_TextileIndustry/refs/heads/main/final_project/India_Shipments.csv')
 
         country_coords = {
             'India': [20.5937, 78.9629],
