@@ -12,7 +12,7 @@ Emma Scherrer (els2264@columbia.edu)
 
 The textile industry stands at a critical juncture, facing unprecedented scrutiny for its unsustainable practices and detrimental impact on the environment. As one of the world's largest consumer industries, aspects such as fashion production cycles, distribution networks and waste are key aspects to construct an overview of the current situation. In the era of social-platform-fueled microtrends and unparalleled mass production, it is important to process and present appealing information to increase awareness on the pressing need for sustainable solutions across different areas of the textile network. 
 
-The proposed project's objective is to create an international sample overview of the textile industry from a sustainable perspective, including data from different topics: import/export share, waste generation, carbon footprint, water usage, consumer behaviour and so on).   
+The proposed project's objective is to create an international sample overview of the textile industry from a sustainable perspective, including data from different topics: import/export share, waste generation, consumer behaviour and so on).   
 
 The “360” in the project’s title alludes to the complete picture it seeks to provide for the reader, allowing them to grasp the multiple components of the textile industry and the areas of impact. Being able to explore global and local information in an interactive, but yet guided way, the reader will have access to large amounts of information without being overwhelmed. 
 
@@ -20,24 +20,17 @@ The “360” in the project’s title alludes to the complete picture it seeks 
 
 Create an interactive html interface integrating different visualization techniques that invite the reader to engage and explore information regarding the textile industry on an international scale. Depending on the availability of the data, information regarding five countries that are key players in the industry will be available in different formats that allow for different perspectives and specific objectives; map to visualize data on a global scale, country specific dashboard for local information and interactive datatable for cross-country comparisons. 
 
-Countries to consider: China, USA, India, UK, Vietnam
-
 #### Map:   
 The visuals start with a map showing the network between the countries regarding import/export trends. When hovering over the country, information regarding global scale measurements could show up (textile trade, waste and carbon pollution compared to net countries, for example). 
 
 #### Dashboard:   
 After clicking, a dashboard corresponding to the selected country will be displayed, revealing more information on a local scale (import/export share, waste generation, carbon footprint, water usage, consumer behaviour, for example). 
 
-Visual resources: 
-- Heatmap/Choropleth map  
-- Static charts  
-- Text
-
 #### Data Table:   
 Interactive data table containing all the information, facilitating a compare view  between countries. 
 
 ## Challenge:    
-The main challenge will be building our own dataset since it is very time consuming. We may also have issues with collecting the same data across countries and risk not having a point of comparison in some cases. 
+The main challenge will be building our own dataset since it is very time consuming. We may also have issues with collecting the same data across countries and textiles and risk not having a point of comparison in some cases. 
 
 ## Data: 
 
