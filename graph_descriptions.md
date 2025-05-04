@@ -33,11 +33,6 @@ The above chart measuring ‘Total Value per Textile Type,’ breaks down the gl
 ## Textiles waste types export over time 
 This chart complements the previous one, providing a time-series analysis of silk waste export values from 2004 to 2025 for major exporting countries: *United States, China, India, Italy, and Germany.*
 
-
-## Top 5 Countries Importing Most Waste
-The above chart measuring ‘Total Value per Textile Type,’ breaks down the global export value (in USD) for different categories of textile waste: *Worn Clothes, Used/New Rags, Wool Waste, and Silk Waste.* Interestingly, we see that worn clothes dominate textile waste exports by a significant margin, with a total export value exceeding **$151 million.** Used and new rags follow distantly at around **$21.7 million,** while wool waste and silk waste account for much smaller shares, at **$3.7 million** and **$3.1 million** respectively. 
-
-
 ## Top 5 countries waste import
 The United States, China, Netherlands, Mexico, and Russia are the main importers of [textile waste](https://www.volza.com/p/textile-waste/import/). These countries often import waste for recycling, reprocessing, or resale, showing how waste materials are redistributed globally for further use.
 
