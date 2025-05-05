@@ -90,12 +90,152 @@ html, body, div, p, span, input, label, textarea, select, button, h1, h2, h3, h4
 """, unsafe_allow_html=True)
 
 
-st.title("Textile Industry Interactive Maps 🌍👖👗👕")
-tab1, tab2, tab3 = st.tabs(["Home", "About", "Contact"])
+# Inject CSS for background image and title styling
+st.markdown("""
+    <style>
+    .custom-header {
+        position: relative;
+        background-image: url('https://as2.ftcdn.net/v2/jpg/03/93/78/39/1000_F_393783937_QcOuNgRBxjxwtvsh0b2K3g253yOND8TU.jpg');
+        background-size: cover;
+        background-position: center;
+        padding: 80px 20px 60px 20px;
+        border-radius: 10px;
+        margin-bottom: 25px;
+    }
 
+    .custom-header::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-color: rgba(0, 0, 0, 0.4); /* semi-transparent overlay */
+        z-index: 0;
+        border-radius: 10px;
+    }
+
+    .custom-header h1 {
+        position: relative;
+        color: white;
+        z-index: 1;
+        font-size: 3em;
+        text-align: center;
+    }
+    </style>
+
+    <div class="custom-header">
+        <h1>Textile Industry and Fast Fashion</h1>
+    </div>
+""", unsafe_allow_html=True)
+
+tab1, tab2, tab3, tab4 = st.tabs(["Home", "About", "Contact", "Explore"])
+
+####### HOME TAB ########
 with tab1:
+    st.markdown("""
+        <style>
+            .side-by-side-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 40px;
+                padding: 50px 5%;
+                flex-wrap: wrap;  /* allows stacking on small screens */
+            }
 
-    ######### Main Interactive Maps ##########
+            .side-text, .side-image {
+                flex: 1;
+                min-width: 300px;
+                max-width: 600px;
+            }
+
+            .side-text {
+                font-size: 1.1em;
+                line-height: 1.7;
+                text-align: left;
+            }
+
+            .side-image img {
+                width: 300px;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            }
+        </style>
+
+        <div class="side-by-side-container">
+            <div class="side-text">
+                <p>
+                This space was created with the objective of harnessing the power of data and visualization to facilitate 
+                understanding of the contributors, dynamics, and nuances of a growingly underregulated industry. 
+                Information was gathered to <b><i>show</i></b> global textile trade and networks, consumer behaviour, and waste exports/imports. 
+                Our interactive graphs provide anyone the means to engage with textile data at a deeper level. 
+                Our hope is that graphs not only highlight the major players fueling the industry, but also encourage reflection 
+                on how consumption patterns in a handful of nations can influence environmental and sustainability challenges 
+                experienced worldwide.
+                </p>
+            </div>
+            <div class="side-image">
+                <img src="https://as1.ftcdn.net/v2/jpg/04/96/51/62/1000_F_496516232_uMuieezAYZeCnzoPAlmqlSp9M11ZxJE5.jpg" />
+            </div>
+        </div>
+    """, unsafe_allow_html=True)
+
+
+####### ABOUT TAB ########
+with tab2:
+    st.subheader("About")
+
+    # Initial image
+    st.markdown("""
+        <div style="text-align: center; padding: 40px;">
+            <img src="https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/AA23/production/_122955534_atacama-4.jpg.webp"
+                alt="Fast Fashion"
+                style="max-width: 800px; width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+            <p style="font-size: 0.85em; color: gray; margin-top: 8px;">
+                Photo by <i>Nicolas Vargas</i>
+            </p>
+        </div>
+    """, unsafe_allow_html=True)
+
+
+    # Full body markdown content
+    st.markdown("""
+    Inspiration for this project lies around 5,000 miles (8,000 kilometers) away from New York City, 
+    in one of the oldest and driest deserts in the world – the Atacama Desert in northern Chile. 
+    From a distance, mounts of clothing and textile scraps seemingly blend in with the dunes and dry hills in the landscape. 
+    From up close, bright colors begin to stand out from discarded ripped jeans, leather boots, heals and old bracelets 
+    against the warm desert sand.
+
+    The *Cemetery of Clothes*, as the locals refer to it, is a reflection of the effects of overproduction, fast fashion 
+    and a lack of policy regulations on the textile industry. An estimated **59,000 tons** of clothing and other textiles 
+    are imported to Chile each year, of which almost **40,000** deemed 
+    [irrecoverable](https://www.aljazeera.com/gallery/2021/11/8/chiles-desert-dumping-ground-for-fast-fashion-leftovers). 
+    The growing piles permeate serious environmental impacts on the land, releasing toxic chemicals, like methane 
+    and formaldehyde, and contaminating the ground with imparishable microplastics. Fast fashion clothing is mainly 
+    made out of polyester (plastic), which is 
+    [non-biodegradable](https://earth.org/fast-fashions-detrimental-effect-on-the-environment/). 
+    With no proper management nor supervision, The Cemetery also presents an inevitable fire hazard as it spreads 
+    across 741 acres (300 hectares) of arid land.
+                """, unsafe_allow_html=True)
+
+    
+with tab3:
+    st.subheader("Contact")
+    st.write("""
+         
+    Grace Liu  
+    Email: gl2910@columbia.edu
+             
+    Sofia Pelaez     
+    Email: asp2265@columbia.edu
+             
+    Sevastian Sanchez   
+    Email: ss7257@columbia.edu
+              
+    Emma Lucie Scherrer  
+    Email: els2264@columbia.edu     
+    """)
+
+with tab4:
+  ######### Main Interactive Maps ##########
     top_consumption_countries = ['United States', 'France', 'Japan', 'Germany', 'United Kingdom']
 
     top_export_waste_countries = ['China', 'United States', 'India', 'Italy', 'Germany']
@@ -182,12 +322,13 @@ with tab1:
 
             #### apparel imports map ####
             st.markdown("---")
-            st.markdown("<h2 style='text-align:center;'>Apparel Imports Animated Map</h2>", unsafe_allow_html=True)
+            st.markdown("<h2 style='text-align:center;'>Apparel Imports Trend Over Time</h2>", unsafe_allow_html=True)
 
             apparel_imports_df = pd.read_csv('https://raw.githubusercontent.com/QMSS-G5063-2025/Group_I_TextileIndustry/refs/heads/main/final_project/apparel_imports.csv')
             apparel_imports_df = apparel_imports_df[apparel_imports_df['Apparel_Imports'] > 0]
             df_no_world = apparel_imports_df[apparel_imports_df['Importers'] != 'World']
 
+            # Mark Top 5 importers per year
             def highlight_top5(group):
                 top5 = group.nlargest(5, 'Apparel_Imports')
                 group['Highlight'] = np.where(group['Importers'].isin(top5['Importers']), 'Top 5', 'Other')
@@ -195,11 +336,13 @@ with tab1:
 
             df_no_world = df_no_world.groupby('Year').apply(highlight_top5).reset_index(drop=True)
 
+            # Define color scheme
             color_map = {
-                'Top 5': 'rgba(163, 201, 168, 0.9)', 
+                'Top 5': 'rgba(163, 201, 168, 0.9)',  
                 'Other': 'rgba(217, 140, 95, 0.9)'     
             }
 
+            # Create Plotly choropleth
             fig = px.choropleth(
                 df_no_world,
                 locations='Importers',
@@ -208,11 +351,17 @@ with tab1:
                 color_discrete_map=color_map,
                 animation_frame='Year',
                 hover_name='Importers',
-                title='Global Apparel Imports in USD (2005–2024)',
+                hover_data={
+                    'Apparel_Imports': ':.0f',
+                    'Highlight': False,
+                    'Year': True,
+                    'Importers': False
+                },
                 width=1400,
                 height=800
             )
 
+            # Add custom hover template for better currency formatting
             fig.update_traces(
                 customdata=np.stack((df_no_world['Apparel_Imports'], df_no_world['Year']), axis=-1),
                 hovertemplate=(
@@ -222,22 +371,23 @@ with tab1:
                 )
             )
 
+            # Apply geographic styling
             fig.update_geos(
                 fitbounds='locations',
                 showcountries=True,
                 showcoastlines=False,
                 showframe=False,
-                showland=True,
-                landcolor='rgba(234, 224, 213, 0.9)',
-                lakecolor='rgb(220, 228, 235)',
-                oceancolor='rgb(236, 236, 236)',
-                bgcolor='rgb(220, 228, 235)',
+                bgcolor='#EAE0D5',
+                landcolor='#3A506B',
+                lakecolor='#22223B', 
                 projection_type='natural earth'
             )
 
+            # Optional: clean layout
             fig.update_layout(
+    
                 title=dict(
-                    text="Global Apparel Imports in USD (2005-2024)",
+                    text="Apparel Imported by Country (USD by thousands) — Top 5 Highlighted",
                     x=0.5,
                     xanchor='center',
                     yanchor='top',
@@ -2427,62 +2577,3 @@ with tab1:
                 </h4>
                 ''', unsafe_allow_html=True)
 
-
-
-
-####### ABOUT AND CONTACT TAB ########
-with tab2:
-    st.subheader("About")
-    st.markdown("""
-    Inspiration for this project lies around 5,000 miles (8,000 kilometers) away from New York City, 
-    in one of the oldest and driest deserts in the world – the Atacama Desert in northern Chile. 
-    From a distance, mounts of clothing and textile scraps seemingly blend in with the dunes and dry hills in the landscape. 
-    From up close, bright colors begin to stand out from discarded ripped jeans, leather boots, heals and old bracelets against 
-    the warm desert sand.
-    """)
-
-    st.markdown("""The _Cemetery of Clothes_, as the locals refer to it, is a reflection of the effects of overproduction, 
-    fast fashion and a lack of policy regulations on the textile industry. An estimated **59,000 tons** of clothing and other 
-    textiles are imported to Chile each year, of which almost **40,000 tons** deemed [irrecoverable](https://www.aljazeera.com/gallery/2021/11/8/chiles-desert-dumping-ground-for-fast-fashion-leftovers). 
-    The growing piles permeate serious environmental impacts on the land, releasing toxic chemicals, like methane and formaldehyde,
-     and contaminating the ground with imparishable microplastics. Fast fashion clothing is mainly made out of polyester 
-     (plastic), which is [non-biodegradable](https://earth.org/fast-fashions-detrimental-effect-on-the-environment/). 
-     With no proper management nor supervision, the Cemetery also presents an inevitable fire hazard as it spreads across 
-     741 acres (300 hectares) of arid land.""")
-
-
-    st.markdown(
-        """
-        <div style="text-align: center;">
-            <img src="https://camo.githubusercontent.com/770c460a9993f2f0f4256c9498abc15698d1be5768d84b40344d5bea25dd23f9/68747470733a2f2f69636865662e626263692e636f2e756b2f6163652f77732f3830302f63707370726f6470622f414132332f70726f64756374696f6e2f5f3132323935353533345f61746163616d612d342e6a70672e77656270" width="900">
-            <p style="font-size: 0.9em; color: gray;">The Cemetery of Clothes</p>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
-    st.markdown("""
-    This space was created with the objective of harnessing the power of data and visualization to facilitate understanding 
-    of the contributors, dynamics, and nuances of a growingly underregulated industry. Information was gathered to show global
-     textile trade and networks, consumer behaviour, and waste exports/exports. Our interactive graphs provide anyone the means 
-     to engage with textile data at a deeper level. Our hope is that graphs not only highlight the major players fueling the 
-     industry, but also encourage reflection on how consumption patterns in a handful of nations can influence envrionmental and 
-     sustainability challenges experienced worldwide.
-    """)
-    
-with tab3:
-    st.subheader("Contact")
-    st.write("""
-         
-    Grace Liu  
-    Email: gl2910@columbia.edu
-             
-    Sofia Pelaez     
-    Email: asp2265@columbia.edu
-             
-    Sevastian Sanchez   
-    Email: ss7257@columbia.edu
-              
-    Emma Lucie Scherrer  
-    Email: els2264@columbia.edu     
-    """)
