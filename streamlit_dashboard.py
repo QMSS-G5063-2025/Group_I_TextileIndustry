@@ -258,6 +258,21 @@ with tab4:
         'Mexico': [23.6345, -102.5528]
     }
 
+    country_name_map = {
+        "United States": "United States of America",
+        "China": "China",
+        "Japan": "Japan",
+        "Germany": "Germany",
+        "United Kingdom": "United Kingdom",
+        "India": "India",
+        "Brazil": "Brazil",
+        "Italy": "Italy",
+        "France": "France",
+        "Russia": "Russia",
+        "The Netherlands": "Netherlands",
+        "Mexico": "Mexico"
+    }
+
     map_choice = st.sidebar.selectbox(
         "Select map",
         ("Top Countries Importing the Most Apparel (Clothing Consumption)", "Top Countries Exporting the Most Textile Waste",
@@ -278,20 +293,59 @@ with tab4:
         )
         country_choice = "All"
 
+    if country_choice != "All":
+        center = cons_waste_coords[country_choice]
+        zoom = 4.4
+    else:
+        center = [20, 0]
+        zoom = 2
+
+    geo_url = "https://raw.githubusercontent.com/python-visualization/folium/master/examples/data/world-countries.json"
+    geo_data = requests.get(geo_url).json()
 
 
     ##### FOLIUM MAPS #####
-    m = folium.Map(location=[20, 0], zoom_start=2, tiles='CartoDB positron')
+    m = folium.Map(location=center, zoom_start=zoom, tiles='CartoDB positron')
 
+
+    highlighted_features = []
 
     for i, country in enumerate(relevant_countries):
+        excluded_color = '#EAE0D5'.lower()
+        highlight_palette = [c for c in business_palette if c.lower() != excluded_color]
+        country_color = highlight_palette[i % len(highlight_palette)]
+        highlighted = (country_choice == "All") or (country == country_choice)
+
+        geo_name = country_name_map.get(country, country)
+
+        country_display_name = country
+
+        for feature in geo_data["features"]:
+            if feature["properties"]["name"] == geo_name:
+                folium.GeoJson(
+                    data=feature,
+                    name=geo_name,
+                    style_function=lambda feat, color=country_color, highlighted=highlighted: {
+                        'fillColor': color,
+                        'color': 'none',
+                        'weight': 0,
+                        'fillOpacity': 0.7 if highlighted else 0,
+                    },
+                    highlight_function=lambda feat: {
+                        'weight': 2,
+                        'color': 'none',
+                        'fillOpacity': 0.9
+                    },
+                    tooltip=country
+                ).add_to(m)
+
         folium.CircleMarker(
             location=cons_waste_coords[country],
-            radius=12 if country == country_choice else 5, 
-            color=business_palette[i % len(business_palette)],  
+            radius=6 if highlighted else 5,
+            color=country_color,
             fill=True,
-            fill_color=business_palette[i % len(business_palette)],
-            fill_opacity=0.9 if country == country_choice else 0.6,
+            fill_color=country_color,
+            fill_opacity=0.9 if highlighted else 0.4,
             tooltip=country
         ).add_to(m)
 
