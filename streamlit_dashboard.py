@@ -126,19 +126,72 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
-tab1, tab2, tab3, tab4 = st.tabs(["Home", "About", "Contact", "Explore"])
+# tab1, tab2, tab3, tab4 = st.tabs(["Home", "About", "Contact", "Explore"])
+tab_names = ["Home", "About", "Contact", "Explore"]
+
+selected_tab = st.radio("Navigation", tab_names, horizontal=True, label_visibility="collapsed")
+st.markdown("""
+    <style>
+    div[role="radiogroup"] > label > div:first-child {
+        display: none !important;
+    }
+
+    div[role="radiogroup"] > label {
+        background-color: #f0f0f5;
+        padding: 10px 25px;
+        margin-right: 8px;
+        border-radius: 20px;
+        cursor: pointer;
+        border: 0px solid #ccc;
+        text-align: center;
+        transition: all 0.2s ease-in-out;
+    }
+
+    /* Hover effect */
+    div[role="radiogroup"] > label:hover {
+        background-color: #EAE0D5;
+        border-color: #999;
+    }
+
+    /* Highlight selected tab */
+    div[role="radiogroup"] > label[data-selected="true"] {
+        background-color: #EAE0D5 !important;
+        color: white !important;
+        border-color: #3A506B !important;
+        font-weight: 600;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+if selected_tab == "Explore":
+    st.markdown("""
+        <style>
+            [data-testid="stSidebar"] {
+                visibility: visible;
+            }
+        </style>
+    """, unsafe_allow_html=True)
+else:
+    st.markdown("""
+        <style>
+            [data-testid="stSidebar"] {
+                visibility: hidden;
+            }
+        </style>
+    """, unsafe_allow_html=True)
 
 ####### HOME TAB ########
-with tab1:
+if selected_tab == "Home":
     st.markdown("""
         <style>
             .side-by-side-container {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                gap: 40px;
-                padding: 50px 5%;
+                gap: 80px;
+                padding: 20px 20%;
                 flex-wrap: wrap;  /* allows stacking on small screens */
+                width: 120%;
             }
 
             .side-text, .side-image {
@@ -180,10 +233,9 @@ with tab1:
 
 
 ####### ABOUT TAB ########
-with tab2:
-    st.subheader("About")
+elif selected_tab == "About":
+    #st.subheader("About")
 
-    # Initial image
     st.markdown("""
         <div style="text-align: center; padding: 40px;">
             <img src="https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/AA23/production/_122955534_atacama-4.jpg.webp"
@@ -217,7 +269,7 @@ with tab2:
                 """, unsafe_allow_html=True)
 
     
-with tab3:
+elif selected_tab == "Contact":
     st.subheader("Contact")
     st.write("""
          
@@ -234,7 +286,7 @@ with tab3:
     Email: els2264@columbia.edu     
     """)
 
-with tab4:
+elif selected_tab == "Explore":
   ######### Main Interactive Maps ##########
     top_consumption_countries = ['United States', 'France', 'Japan', 'Germany', 'United Kingdom']
 
